@@ -1,0 +1,77 @@
+@layer theme, components, base;
+
+@import url("https://fonts.googleapis.com/css2?family=Bigshot+One&family=Caesar+Dressing&display=swap");
+
+@layer theme {
+    $theme: (
+        "shade": "44, 15%, 1%",
+        "danger": "345, 100%, 56%",
+        "info": "225, 84%, 49%",
+        "success": "160, 100%, 37%",
+        "warning": "36, 100%, 50%",
+        "purple": "273, 100%, 64%",
+    );
+
+    :root {
+        @each $color, $hsl in $theme {
+            --color-#{$color}: hsl(#{$hsl});
+        }
+
+        // States
+
+        --border: 0.1rem solid var(--bg-front);
+        --border-muted: none;
+
+        --border-radius: 0.5rem;
+
+        --shadow: 0.1rem 0.1rem 4rem 1rem hls(from var(--bg-back) h s l / 0.25);
+
+        --font: "Bigshot One", serif;
+        --font-caption: "Caesar Dressing", serif;
+
+        // Colors
+
+        --text: hsl(from var(--color-shade) h s l);
+        --text-muted: hsl(from var(--color-shade) h s 30%);
+
+        --bg-back: hsl(from var(--color-shade) h s 80%);
+        --bg-middle: hsl(from var(--color-shade) h s 70%);
+        --bg-front: hsl(from var(--color-shade) h s 60%);
+
+        --border-color: hsl(from var(--color-shade) h s 60%);
+        --border-muted-color: hsl(from var(--color-shade) h s 50%);
+
+        --color-accent: var(--color-purple);
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@layer components {
+}
+
+@layer base {
+    body {
+        overflow: hidden;
+
+        font-family: var(--font);
+
+        color: var(--text);
+
+        background-color: var(--bg-back);
+
+        caret-color: var(--accent);
+        accent-color: var(--color-accent);
+
+        width: 100dvw;
+        height: 100dvh;
+    }
+
+    // ::selection {
+    //     color: var(--bg-back);
+    //     background: var(--color-accent);
+    // }
+}

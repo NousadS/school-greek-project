@@ -1,11 +1,7 @@
 <script lang="ts">
-    // Assets
-
-    import "../app.scss";
-
     // Components
 
-    import Bypass from "$lib/components/other/Bypass.svelte";
+    import Interface from "$lib/components/game/interface/Interface.svelte";
 
     // Props
 
@@ -14,13 +10,11 @@
     let { children }: { children: Snippet } = $props();
 </script>
 
-<svelte:head>
-    <title>Nousad</title>
-</svelte:head>
+<div class="container">
+    {@render children()}
+</div>
 
-{@render children()}
-
-<Bypass />
+<Interface />
 
 <style lang="scss">
 </style>
