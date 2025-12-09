@@ -1,11 +1,11 @@
 <script lang="ts">
     // Assets
 
-    import errorMasks from "$lib/images/errorMasks.png";
+    import errorMasks from "$lib/images/interface/errorMasks.png";
 
     // Components
 
-    import Button from "$lib/components/common/Button.svelte";
+    import Button from "$lib/components/Button.svelte";
 
     // Localization
 

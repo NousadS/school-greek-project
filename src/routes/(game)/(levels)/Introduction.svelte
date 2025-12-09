@@ -1,8 +1,8 @@
 <script lang="ts">
     // Components
 
-    import Button from "$lib/components/common/Button.svelte";
-    import Ornament from "$lib/components/common/Ornament.svelte";
+    import Button from "$lib/components/Button.svelte";
+    import Ornament from "$lib/components/Ornament.svelte";
 
     // Localization
 
@@ -17,24 +17,48 @@
 
     // Props
 
-    import { onMount, type Snippet } from "svelte";
+    import { onDestroy, onMount, type Snippet } from "svelte";
 
     let { level, children }: { level: number; children: Snippet } = $props();
 
     let dialog: HTMLDialogElement;
+    let clicked: boolean = $state(false);
+    let counter: number = $state(3);
 
     function onclick() {
-        dialog.close();
+        clicked = true;
+
+        setTimeout(() => counter--, 1000);
+        setTimeout(() => counter--, 2000);
+        setTimeout(() => {
+            dialog.close();
+
+            $storage.timeFrozen = false;
+
+            const destroyID = setInterval(() => {
+                if (!$storage.timeFrozen) $storage.time++;
+            }, 10);
+
+            onDestroy(() => clearInterval(destroyID));
+        }, 3000);
     }
 
-    // onMount(() => setTimeout(() => dialog.showModal(), 100));
-    // onMount(() => setInterval(() => $storage.time++, 100));
+    onMount(() => {
+        $storage.timeFrozen = true;
+        // dialog.showModal();
+    });
 </script>
 
 <dialog bind:this={dialog}>
     <h1>{T.introductionTitle} {level + 1}</h1>
 
-    <p>{@render children()}</p>
+    <p class:clicked>
+        {#if clicked}
+            {counter}
+        {:else}
+            {@render children()}
+        {/if}
+    </p>
 
     <div class="button">
         <Button {onclick}>{T.introductionButton}</Button>
@@ -80,6 +104,11 @@
             font-size: 1.4rem;
             line-height: 1.6;
             text-align: center;
+
+            &.clicked {
+                font-weight: bold;
+                font-size: 3rem;
+            }
         }
 
         .button {

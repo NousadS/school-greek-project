@@ -36,7 +36,12 @@ const localization: Localization = {
         introductionTitle: "Level",
         introductionButton: "Start!",
     },
-    level: [],
+    level: [
+        {
+            introduction: `
+            `,
+        }
+    ],
     ending: [],
 };
 

@@ -1,7 +1,11 @@
 <script lang="ts">
+    // Assets
+
+    import menuImage from "$lib/images/interface/menu.jpg";
+
     // Components
 
-    import Button from "$lib/components/common/Button.svelte";
+    import Button from "$lib/components/Button.svelte";
 
     // Localization
 
@@ -25,7 +29,16 @@
     }
 </script>
 
-<div class="container">
+<div
+    class="container"
+    style="background-image:
+    linear-gradient(
+        315deg,
+        rgba(255, 255, 255, 0.5),
+        rgba(128, 128, 128, 0.5)
+    ),
+    url({menuImage})"
+>
     <h1>
         {#each T.title.split(" ") as word, _}
             <span>
@@ -51,11 +64,10 @@
         height: 100dvh;
 
         background: linear-gradient(
-                315deg,
-                rgba(255, 255, 255, 0.5),
-                rgba(128, 128, 128, 0.5)
-            ),
-            url("https://upload.wikimedia.org/wikipedia/commons/4/4f/Henri-Paul_Motte_-_Le_Cheval_de_Troie.jpg");
+            315deg,
+            rgba(255, 255, 255, 0.5),
+            rgba(128, 128, 128, 0.5)
+        );
         background-size: cover;
         background-position: center;
 

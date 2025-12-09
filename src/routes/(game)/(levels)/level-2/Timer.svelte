@@ -1,9 +1,9 @@
 <script lang="ts">
     // Assets
 
-    import clock_back from "$lib/images/clock-back.png";
-    import clock_minute_hand from "$lib/images/clock-minute-hand.png";
-    import clock_hour_hand from "$lib/images/clock-hour-hand.png";
+    import clock_back from "$lib/images/game/clock-back.png";
+    import clock_minute_hand from "$lib/images/game/clock-minute-hand.png";
+    import clock_hour_hand from "$lib/images/game/clock-hour-hand.png";
 
     // Localization
 
@@ -21,19 +21,6 @@
     import { fly } from "svelte/transition";
     import { onMount } from "svelte";
 
-    onMount(() => {
-        $storage.timeFreeze = false;
-
-        // return (
-        //     (id) => () =>
-        //         clearInterval(id)
-        // )(
-        //     setInterval(() => {
-        //         $storage.time++;
-        //     }, 10)
-        // );
-    });
-
     // Content
 
     let formattedTime: string[] = $derived(
@@ -41,7 +28,7 @@
     );
 </script>
 
-<div class="time" class:frozen={$storage.timeFreeze}>
+<div class="time" class:frozen={$storage.timeFrozen}>
     <div class="clock">
         <img src={clock_back} alt="Clock without hands" class="back" />
         <img

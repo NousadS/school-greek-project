@@ -11,7 +11,7 @@
 
     // Storage
 
-    import { storage } from "$lib/Storage";
+    import { defaultStorageState, storage, type Storage } from "$lib/Storage";
 
     // Content
 
@@ -43,7 +43,9 @@
         const selected: string = select.selectedOptions.item(0)?.value || "";
         select.selectedIndex = 0;
 
-        if (selected.startsWith("goto")) {
+        if (selected == "reset") {
+            $storage = defaultStorageState;
+        } else if (selected.startsWith("goto")) {
             const g: string = selected.substring(5);
             let d: string = "error";
 
@@ -58,8 +60,8 @@
         } else if (selected.startsWith("time")) {
             const t: string = selected.substring(5);
 
-            if (t.startsWith("pause")) $storage.timeFreeze = true;
-            else if (t.startsWith("unpause")) $storage.timeFreeze = false;
+            if (t.startsWith("pause")) $storage.timeFrozen = true;
+            else if (t.startsWith("unpause")) $storage.timeFrozen = false;
             else if (t.startsWith("reset")) $storage.time = 0;
             else if (t.startsWith("seconds"))
                 $storage.time += parseInt(t.substring(8)) * 100;
@@ -69,9 +71,9 @@
             const r: string = selected.substring(9, 9 + 4);
             const a: number = parseInt(selected.substring(9 + 4 + 1));
 
-            if (r == "wood") $storage.wood += a;
-            if (r == "rope") $storage.rope += a;
-            if (r == "rock") $storage.rock += a;
+            if (r == "wood") $storage.resources.wood.got += a;
+            if (r == "rope") $storage.resources.rope.got += a;
+            if (r == "rock") $storage.resources.rock.got += a;
 
             console.log("Resource bypass:", r, a);
         } else {
@@ -86,6 +88,7 @@
     <form bind:this={form} method="dialog" {onsubmit}>
         <select bind:this={select} onchange={() => form.requestSubmit()}>
             <option value="Bypass" hidden>Bypass</option>
+            <option value="reset">Reset</option>
 
             <optgroup label="Goto">
                 <option value="goto-menu">Menu</option>
@@ -94,13 +97,16 @@
 
             <optgroup label="Goto: Level">
                 {#each { length: 8 }, level}
-                    <option value="goto-level-{level}">Level {level}</option>
+                    <option value="goto-level-{level + 1}"
+                        >Level {level + 1}</option
+                    >
                 {/each}
             </optgroup>
 
             <optgroup label="Goto: Ending">
                 {#each { length: 8 }, ending}
-                    <option value="goto-ending-{ending}">Ending {ending}</option
+                    <option value="goto-ending-{ending + 1}"
+                        >Ending {ending + 1}</option
                     >
                 {/each}
             </optgroup>

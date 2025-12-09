@@ -1,7 +1,7 @@
 <script lang="ts">
     // Components
 
-    import Ornament from "$lib/components/common/Ornament.svelte";
+    import Ornament from "$lib/components/Ornament.svelte";
 
     // Props
 

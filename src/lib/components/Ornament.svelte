@@ -1,7 +1,7 @@
 <script lang="ts">
     // Assets
 
-    import ornament from "$lib/images/ornament.png";
+    import ornament from "$lib/images/interface/ornament.png";
 </script>
 
 {#each { length: 4 }}
