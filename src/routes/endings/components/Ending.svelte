@@ -39,7 +39,7 @@
         }, 1000);
         setTimeout(() => {
             shownPicture = (shownPicture + 0.5) % pictures.length;
-        }, 7500);
+        }, 7000);
 
         setInterval(() => {
             setTimeout(() => {
@@ -47,7 +47,7 @@
             }, 1000);
             setTimeout(() => {
                 shownPicture = (shownPicture + 0.5) % pictures.length;
-            }, 7500);
+            }, 7000);
         }, 10000);
         ``;
     });

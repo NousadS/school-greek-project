@@ -74,6 +74,22 @@
             currentMessage++;
         }
     }
+
+    function shuffle() {
+        let a: Array<number> = [Math.ceil(Math.random() * 3) % 3];
+
+        let t: number = Math.ceil(Math.random() * 3) % 3;
+
+        while (a.includes(t)) t = Math.ceil(Math.random() * 3) % 3;
+
+        a.push(t);
+
+        if (a.includes(0) && a.includes(1)) a.push(2);
+        else if (a.includes(0) && a.includes(2)) a.push(1);
+        else if (a.includes(1) && a.includes(2)) a.push(0);
+
+        return a;
+    }
 </script>
 
 <Introduction level={2}>{T.introductionThird}</Introduction>
@@ -96,10 +112,12 @@
     </div>
 
     <div class="choices">
-        {#each [messaging[currentMessage].a, messaging[currentMessage].b, messaging[currentMessage].c] as button, index}
+        {#each shuffle() as index}
             <div class="choice choide-{index}">
                 <Button onclick={() => onclick(index)}>
-                    {button}
+                    {messaging[currentMessage][
+                        ["a", "b", "c"][index] as "a" | "b" | "c"
+                    ]}
                 </Button>
             </div>
         {/each}
