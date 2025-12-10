@@ -49,29 +49,29 @@ const T: Localization = {
 
     introductionFirst: `
         Auf dieser Level ist es deine Aufgabe, die notwendigen Ressourcen zu sammeln, 
-        um das Trojanische Pferd zu errichten. Zwei Orte stehen dir dabei offen: 
+        um das Trojanische Pferd zu errichten. Du kannst die Materialien aus zwei Orten herbekommen: 
         der geschäftige Marktplatz und der windumtoste Hafen. 
-        Suche an einem dieser Orte nach allen erforderlichen Materialien. 
+        Suche an beiden dieser Orte nach allen erforderlichen Materialien. 
         Hast du dort alles zusammengetragen, so betätige die seitlich angebrachte Schaltfläche, 
         um deinen Weg fortzusetzen und dem Plan der Achaier näherzukommen.
     `,
     introductionSecond: `
-        Du schreitest zur nächsten Level vor. Hier liegt es an dir, 
+        Du schreitest zum nächsten Level vor. Hier liegt es an dir, 
         das Trojanische Pferd zu errichten - fehlerlos und mit größter Sorgfalt, 
-        wie es eines Werkes der alten Meister bedarf.
+        wie es eines Werkes der alten Meister gerecht kommt.
         Ziehe die gesammelten Ressourcen an die vorgesehenen Stellen, um das Pferd zu vollenden 
-        und seinen Platz im Lauf der Geschichte zu sichern.
+        und seinen Platz im Laufe der Geschichte zu sichern.
     `,
     introductionThird: `
-        Der letzte Schritt, um Troja zu bezwingen! Die Trojaner sind nicht überzeugt, 
+        Der letzte Schritt, um Troja zu besiegen! Die Trojaner sind nicht überzeugt, 
         dass das Pferd ein Geschenk ist. Du wurdest als Gesandter ausgesandt und 
-        musst nun diesen betagten Bürger überzeugen, dass unser Pferd keinerlei Gefahr birgt. 
-        Wähle deine Worte mit Bedacht, wie es einem Diplomaten in den Geschichten der Alten gebührt, 
-        und gewinne sein Vertrauen, damit sich das Tor Trojas schließlich öffnet.
+        musst nun diesen trojanischen Adeligen überzeugen, dass unser Pferd keinerlei Gefahr birgt. 
+        Wähle nun deine Worte mit Bedacht, wie es sich für einen Diplomaten in der Geschichte gehört, 
+        und gewinne sein Vertrauen, damit sich das Tor Trojas öffnet.
     `,
 
     dialogSpeakerFirst: `
-        Bei den grauen Augen der Athene - welcher Wahnsinn ist das? 
+        Bei den grauen Augen der Athene - Was für ein Wahnsinn ist das? 
         Zehn Jahre lang habt ihr Achaier an unseren Mauern gekratzt wie hungernde Wölfe. 
         Und nun, plötzlich, wenden eure Schiffe den Bug dem Meer zu? 
         Sprich die Wahrheit - oder fahre rasch hinab zu Hades.
