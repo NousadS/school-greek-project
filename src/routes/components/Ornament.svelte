@@ -15,7 +15,7 @@
         display: block;
         position: absolute;
 
-        width: 1em;
+        width: 1rem;
         aspect-ratio: 1 / 1;
 
         user-select: none;

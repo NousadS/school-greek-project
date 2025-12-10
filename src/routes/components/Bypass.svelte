@@ -67,9 +67,18 @@
 
             if (t.startsWith("pause")) $storage.timeFrozen = true;
             else if (t.startsWith("unpause")) $storage.timeFrozen = false;
-            else if (t.startsWith("reset")) $storage.time = 0;
+            else if (t.startsWith("reset"))
+                $storage.time = defaultStorageState.time;
             else if (t.startsWith("seconds"))
                 $storage.time += parseInt(t.substring(8)) * 100;
+
+            console.log("Time bypass:", t);
+        } else if (selected.startsWith("trust")) {
+            const t: string = selected.substring(6);
+
+            if (t.startsWith("reset"))
+                $storage.trust = defaultStorageState.trust;
+            else $storage.trust += parseInt(t);
 
             console.log("Time bypass:", t);
         } else if (selected.startsWith("resource")) {
@@ -126,6 +135,16 @@
                     <option value="time-seconds-{amount}"
                         >{amount < 0 ? `${amount}` : `+${amount}`}
                         {T.bypassTimeSeconds}</option
+                    >
+                {/each}
+            </optgroup>
+
+            <optgroup label={T.bypassTrust}>
+                <option value="trust-reset">{T.bypassTrustReset}</option>
+
+                {#each [-2, -1, 1, 2] as amount}
+                    <option value="trust-{amount}"
+                        >{amount < 0 ? `${amount}` : `+${amount}`}</option
                     >
                 {/each}
             </optgroup>

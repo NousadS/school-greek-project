@@ -3,16 +3,16 @@ type Localization = Record<string, string>;
 const T: Localization = {
     // Common
 
-    seconds: "seconds",
+    seconds: "Sekunden",
     secondsShort: "s",
     start: "Start",
-    back: "Back",
+    back: "Zurück",
 
     // Resources
 
-    wood: "Wood",
-    rope: "Rope",
-    rock: "Rock",
+    wood: "Holz",
+    rope: "Seil",
+    rock: "Stein",
 
     // Menu
 
@@ -35,6 +35,8 @@ const T: Localization = {
     bypassTimeUnpause: "Unpause",
     bypassTimeReset: "Reset",
     bypassTimeSeconds: "seconds",
+    bypassTrust: "Trust",
+    bypassTrustReset: "Reset",
     bypassResources: "Resources",
 
     // Error
@@ -45,58 +47,62 @@ const T: Localization = {
 
     introductionTitle: "Level",
 
-    dialogSpeakerFirst: `By the gray eyes of Athena, what madness is this? Ten years you Achaeans have clawed at our walls like starving wolves. Now, suddenly, your ships turn their prows to the sea? Speak truth, or meet Hades swiftly.`,
-    dialogSpeakerSecond: `If you flee, then explain this monstrosity of pine and fir standing in the sand. Why leave such a titan upon our shores? Is it a siege tower disguised as a beast?`,
-    dialogSpeakerThird: `An offering? Then why craft it of such colossal girth? It is too wide for our gates and too tall for our temples. It seems built to mock us, not to honor a Goddess.`,
-    dialogSpeakerFourth: `Your words flow like honey, Greek, but I smell the bile beneath. Why should I not put a torch to this wood and be done with it?`,
+    introductionFirst: `Auf dieser Level ist es deine Aufgabe, die notwendigen Ressourcen zu sammeln, um das Trojanische Pferd zu errichten. Zwei Orte stehen dir dabei offen: der geschäftige Marktplatz und der windumtoste Hafen. Suche an einem dieser Orte nach allen erforderlichen Materialien. Hast du dort alles zusammengetragen, so betätige die seitlich angebrachte Schaltfläche, um deinen Weg fortzusetzen und dem Plan der Achaier näherzukommen.`,
+    introductionSecond: `Du schreitest zur nächsten Level vor. Hier liegt es an dir, das Trojanische Pferd zu errichten - fehlerlos und mit größter Sorgfalt, wie es eines Werkes der alten Meister bedarf. Ziehe die gesammelten Ressourcen an die vorgesehenen Stellen, um das Pferd zu vollenden und seinen Platz im Lauf der Geschichte zu sichern.`,
+    introductionThird: `„Der letzte Schritt, um Troja zu bezwingen! Die Trojaner sind nicht überzeugt, dass das Pferd ein Geschenk ist. Du wurdest als Gesandter ausgesandt und musst nun diesen betagten Bürger überzeugen, dass unser Pferd keinerlei Gefahr birgt. Wähle deine Worte mit Bedacht, wie es einem Diplomaten in den Geschichten der Alten gebührt, und gewinne sein Vertrauen, damit sich das Tor Trojas schließlich öffnet.`,
 
-    dialogFirstA: `Lord Agamemnon bows to the will of the Gods. Calchas the Seer has proclaimed that victory is denied to us. We return to Argos to appease the angry skies.`,
-    dialogFirstB: `We are tired and broken. Your walls are too strong, and Hector's ghost haunts our sleep. We surrender the field to you.`,
-    dialogFirstC: `We leave because we have already won! We leave this land to rot, for it is not worth the blood of Achilles!`,
-    
-    dialogSecondA: `It is an offering to Pallas Athena. We stole her Palladium statue from your temple, and she has sent storms against us. This image is to replace what was taken and grant us safe voyage home.`,
-    dialogSecondB: `It is a monument to the brave dead, both Greek and Trojan. A symbol of the peace we now seek.`,
-    dialogSecondC: `It is a storage vessel for the treasures we could not carry. A tribute to your King Priam for his mercy.`,
+    dialogSpeakerFirst: `Bei den grauen Augen der Athene - welcher Wahnsinn ist das? Zehn Jahre lang habt ihr Achaier an unseren Mauern gekratzt wie hungernde Wölfe. Und nun, plötzlich, wenden eure Schiffe den Bug dem Meer zu? Sprich die Wahrheit - oder fahre rasch hinab zu Hades.`,
+    dialogSpeakerSecond: `Wenn ihr wirklich flieht, dann erklärt dieses Ungeheuer aus Kiefer und Tanne, das im Sand steht. Warum lasst ihr einen solchen Titanen an unserer Küste zurück? Ist es ein Belagerungsturm, verborgen in der Gestalt eines Tieres?`,
+    dialogSpeakerThird: `Ein Opfer, sagst du? Warum aber ist es von solcher gewaltigen Größe? Es ist zu breit für unsere Tore und zu hoch für unsere Tempel. Es scheint gemacht, um uns zu verhöhnen, nicht um eine Göttin zu ehren.`,
+    dialogSpeakerFourth: `Deine Worte fließen wie Honig, Grieche, doch darunter rieche ich Galle. Warum sollte ich nicht eine Fackel an dieses Holz legen und der Sache ein Ende bereiten?`,
 
-    dialogThirdA: `Calchas ordered it built vast so that you could not bring it inside your city. For if you did, the protection of Athena would pass from us to you, and Troy would never fall.`,
-    dialogThirdB: `Our builders were overcome with zeal! We wanted the Olympians to see our piety from the peaks of Mount Ida.`,
-    dialogThirdC: `We built it large so that... it could hold enough distinct prayers for every soldier returning home.`,
+    dialogFirstA: `König Agamemnon beugt sich dem Willen der Götter. Kalchas, der Seher, hat verkündet, dass uns der Sieg verwehrt ist. Wir kehren nach Argos zurück, um den erzürnten Himmel zu besänftigen.`,
+    dialogFirstB: `Wir sind müde und gebrochen. Eure Mauern sind zu stark, und Hektors Geist verfolgt unsere Träume. Wir überlassen euch das Feld.`,
+    dialogFirstC: `Wir gehen, weil wir bereits gesiegt haben! Dieses Land soll vergehen – es ist nicht wert des Blutes des Achilleus!`,
 
-    dialogFourthA: `Burn it, then. We wash our hands of it. But know that if you desecrate Athena's gift, her wrath will turn not on us, who built it, but on you, who destroyed it.`,
-    dialogFourthB: `I swear on the River Styx, I tell no lies! Would a man alone and unarmed lie to a host of Trojans?`,
-    dialogFourthC: `Do it then! Burn it! See if we care for your foolish superstitions!`,
+    dialogSecondA: `Es ist eine Weihegabe an Pallas Athene. Wir entwendeten das Palladion aus eurem Tempel, und sie sandte Stürme gegen uns. Dieses Abbild soll ersetzen, was genommen wurde, und uns eine sichere Heimfahrt gewähren.`,
+    dialogSecondB: `Es ist ein Denkmal für die tapferen Gefallenen, Griechen wie Trojaner. Ein Zeichen des Friedens, den wir nun suchen.`,
+    dialogSecondC: `Es ist ein Behältnis für die Schätze, die wir nicht mitnehmen konnten – ein Tribut an König Priamos für seine Barmherzigkeit.`,
+
+    dialogThirdA: `Kalchas befahl, es so groß zu erbauen, dass ihr es nicht in eure Stadt bringen könntet. Denn würdet ihr es hineinziehen, ginge Athenes Schutz von uns auf euch über – und Troja würde niemals fallen.`,
+    dialogThirdB: `Unsere Baumeister wurden vom Eifer überwältigt! Wir wollten, dass die Olympier unsere Frömmigkeit selbst von den Höhen des Ida erblicken.`,
+    dialogThirdC: `Wir bauten es so groß, damit es … genügend Raum trüge für all die Gebete eines jeden Kriegers auf dem Weg nach Hause.`,
+
+    dialogFourthA: `Verbrennt es also. Wir waschen unsere Hände in Unschuld. Doch wisset: Entweiht ihr Athenes Gabe, so fällt ihr Zorn nicht auf uns, die Erbauer, sondern auf euch, die Zerstörer.`,
+    dialogFourthB: `Ich schwöre beim Strom des Styx – ich lüge nicht! Würde ein einzelner, unbewaffneter Mann ein ganzes Heer Trojaner belügen?`,
+    dialogFourthC: `Dann tut es! Verbrennt es! Sehen wir doch, wie sehr uns euer törichter Aberglaube kümmert!`,
 
     // Endings
 
-    endingFirst1: `And so, as destiny had always written in the stars above,`,
-    endingFirst2: `the clever plan of the Greeks came to pass exactly as they hoped.`,
-    endingFirst3: `The plan succeeded. Troy, that great and proud city`,
-    endingFirst4: `which had stood strong against ten years of war,`,
-    endingFirst5: `was destroyed - burned to ashes`,
-    endingFirst6: `while the gods themselves watched from the heaven Olymp.`,
+    endingFirst1: `Und so, wie es das Schicksal seit jeher in die Sterne geschrieben hatte,`,
+    endingFirst2: `ging der listige Plan der Griechen genau so auf, wie sie es erhofft hatten.`,
+    endingFirst3: `Der Plan gelang. Troja, die große und stolze Stadt,`,
+    endingFirst4: `die zehn Jahre des Krieges standgehalten hatte,`,
+    endingFirst5: `wurde zerstört – zu Asche verbrannt,`,
+    endingFirst6: `während die Götter selbst vom Olymp herab zusahen.`,
 
-    endingSecond1: `But the gods had different plans,`,
-    endingSecond2: `and luck did not smile upon the Greeks`,
-    endingSecond3: `The plan failed - the Trojans discovered`,
-    endingSecond4: `the hidden warriors before they could strike.`,
-    endingSecond5: `Troy, that strong and mighty city protected by the gods above,`,
-    endingSecond6: `remained standing - her walls still proud,`,
-    endingSecond7: `her people safeand her victory complete.`,
+    endingSecond1: `Doch die Götter hatten andere Pläne,`,
+    endingSecond2: `und das Glück lächelte den Griechen nicht zu.`,
+    endingSecond3: `Der Plan scheiterte – die Trojaner entdeckten`,
+    endingSecond4: `die verborgenen Krieger, ehe sie zuschlagen konnten.`,
+    endingSecond5: `Troja, die starke und mächtige Stadt unter göttlichem Schutz,`,
+    endingSecond6: `blieb bestehen – ihre Mauern noch immer stolz,`,
+    endingSecond7: `ihr Volk in Sicherheit und ihr Sieg vollkommen.`,
 
-    endingThird1: `But the gods had different plans,`,
-    endingThird2: `and luck did not smile upon the Greeks`,
-    endingThird3: `The plan failed - the Trojans discovered`,
-    endingThird4: `the hidden warriors before they could strike.`,
-    endingThird5: `Troy, that strong and mighty city protected by the gods above,`,
-    endingThird6: `remained standing - her walls still proud,`,
-    endingThird7: `her people safeand her victory complete.`,
+    endingThird1: `Doch die Götter hatten andere Pläne,`,
+    endingThird2: `und das Glück lächelte den Griechen nicht zu.`,
+    endingThird3: `Der Plan scheiterte – die Trojaner entdeckten`,
+    endingThird4: `die verborgenen Krieger, ehe sie zuschlagen konnten.`,
+    endingThird5: `Troja, die starke und mächtige Stadt unter göttlichem Schutz,`,
+    endingThird6: `blieb bestehen – ihre Mauern noch immer stolz,`,
+    endingThird7: `ihr Volk in Sicherheit und ihr Sieg vollkommen.`,
 
-    endingFourth1: `But the diplomat spoke poorly,`,
-    endingFourth2: `and the Trojans did not trust his words.`,
-    endingFourth3: `The horse never reached the gates - the guards destroyed it`,
-    endingFourth4: `outside the city walls.`,
-    endingFourth5: `Troy stayed safe because the diplomat's mistakes `,
-    endingFourth6: `warned them of the Greek trick before it could begin.`,
+    endingFourth1: `Doch der Gesandte sprach ungeschickt,`,
+    endingFourth2: `und die Trojaner misstrauten seinen Worten.`,
+    endingFourth3: `Das Pferd erreichte niemals die Tore – die Wächter zerstörten es`,
+    endingFourth4: `außerhalb der Stadtmauern.`,
+    endingFourth5: `Troja blieb sicher, denn die Fehler des Diplomaten`,
+    endingFourth6: `warnten sie vor der griechischen List, noch ehe sie beginnen konnte.`,
 
     // Alts
 

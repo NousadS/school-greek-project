@@ -4,6 +4,7 @@
     import menuImage from "$lib/images/interface/menu/background.jpg";
 
     import { T } from "$lib/Localization";
+    import { defaultStorageState, storage } from "$lib/Storage";
 
     // Components
 
@@ -16,8 +17,9 @@
     function onclick() {
         clicked = true;
 
+        $storage = defaultStorageState;
+
         setTimeout(() => (location.pathname = "/levels/first"), 750);
-        setTimeout(() => (clicked = false), 1500);
     }
 </script>
 
@@ -75,7 +77,7 @@
             grid-column: 2 / span 4;
             grid-row: 2;
 
-            font-size: 10vmin;
+            font-size: 4rem;
             text-transform: uppercase;
 
             width: 100%;

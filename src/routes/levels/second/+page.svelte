@@ -187,7 +187,7 @@
     }
 </script>
 
-<Introduction level={1}>{T.introduction}</Introduction>
+<Introduction level={1}>{T.introductionSecond}</Introduction>
 
 <div class="container">
     <div class="puzzle">

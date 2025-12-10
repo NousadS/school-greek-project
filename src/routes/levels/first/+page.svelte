@@ -134,7 +134,7 @@
     }
 </script>
 
-<Introduction level={0}>{T.introduction}</Introduction>
+<Introduction level={0}>{T.introductionFirst}</Introduction>
 
 <div class="container">
     {#key currentLocation}

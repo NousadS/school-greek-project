@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-    <title>Nousad</title>
+    <title>Das trojanische Pferd</title>
 </svelte:head>
 
 {@render children()}

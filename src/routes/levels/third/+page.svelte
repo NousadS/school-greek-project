@@ -58,12 +58,25 @@
 
     function onclick(button: number) {
         if (button == 0) $storage.trust++;
-        if (button == 1) $storage.trust--;
-        if (button == 2) $storage.trust = 0;
+        else if (button == 1) $storage.trust--;
+        else if (button == 2) {
+            $storage.trust = 0;
+
+            setTimeout(() => (location.href = "/endings/fourth"), 1000);
+        }
+
+        $storage.trust = Math.max(0, Math.min(8, $storage.trust));
+
+        if (currentMessage + 1 >= 4) {
+            if ($storage.trust > 4) location.href = "/endings/first";
+            else location.href = "/endings/fourth";
+        } else {
+            currentMessage++;
+        }
     }
 </script>
 
-<Introduction level={2}>{T.introduction}</Introduction>
+<Introduction level={2}>{T.introductionThird}</Introduction>
 
 <div class="container">
     <img
@@ -102,8 +115,13 @@
                   ? "var(--color-success)"
                   : "var(--color-info)"}
         ></div>
+
         <Ornament />
     </div>
+
+    <div class="timer"><Timer /></div>
+
+    <div class="black" class:showed={$storage.trust == 0}></div>
 </div>
 
 <style lang="scss">
@@ -130,7 +148,9 @@
                 width: calc(100% * (var(--trust) / 8));
                 height: 75%;
 
-                transition: 0.5s width ease, 0.5s background-color ease;
+                transition:
+                    0.5s width ease,
+                    0.5s background-color ease;
             }
         }
 
@@ -168,10 +188,31 @@
 
         .behind {
             position: absolute;
-            top: 0;
+            top: 10dvh;
             left: 0;
 
-            height: 100%;
+            width: 30dvw;
+        }
+
+        .timer {
+            position: absolute;
+            top: 7dvh;
+            right: 10dvh;
+        }
+
+        .black {
+            opacity: 0;
+            position: absolute;
+            width: 100dvw;
+            height: 100dvh;
+            background-color: #000000;
+            transition: 0.8s opacity ease;
+            z-index: 4;
+            pointer-events: none;
+
+            &.showed {
+                opacity: 1;
+            }
         }
     }
 </style>

@@ -35,7 +35,7 @@
 
     onMount(() => {
         $storage.timeFrozen = true;
-        // dialog.showModal();
+        dialog.showModal();
     });
 </script>
 
