@@ -5,7 +5,7 @@
 
     // Components
 
-    import Bypass from "./Bypass.svelte";
+    import Bypass from "./components/Bypass.svelte";
 
     // Props
 

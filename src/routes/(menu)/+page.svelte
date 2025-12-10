@@ -1,21 +1,13 @@
 <script lang="ts">
     // Assets
 
-    import menuImage from "$lib/images/interface/menu.jpg";
+    import menuImage from "$lib/images/interface/menu/background.jpg";
+
+    import { T } from "$lib/Localization";
 
     // Components
 
-    import Button from "$lib/components/Button.svelte";
-
-    // Localization
-
-    import {
-        localization,
-        type Localization,
-        type LocalizationEntry,
-    } from "$lib/Localization";
-
-    const T: LocalizationEntry = localization.menu;
+    import Button from "../components/Button.svelte";
 
     // Content
 
@@ -24,7 +16,7 @@
     function onclick() {
         clicked = true;
 
-        setTimeout(() => (location.pathname = "/level-1"), 750);
+        setTimeout(() => (location.pathname = "/levels/first"), 750);
         setTimeout(() => (clicked = false), 1500);
     }
 </script>
@@ -40,7 +32,7 @@
     url({menuImage})"
 >
     <h1>
-        {#each T.title.split(" ") as word, _}
+        {#each T.menuTitle.split(" ") as word, _}
             <span>
                 <!-- {#each Array.from(word) as s, _}
                 <span>{s}</span>
@@ -50,11 +42,11 @@
         {/each}
     </h1>
 
-    <div class="description">{T.description}</div>
-    <div class="authors">{T.authors}</div>
+    <div class="description">{T.menuDescription}</div>
+    <div class="authors">{T.menuAuthors}</div>
 
     <div class="button" class:clicked>
-        <Button {onclick}>{T.button} <span>➙</span></Button>
+        <Button {onclick}>{T.start} <span>➙</span></Button>
     </div>
 </div>
 

@@ -1,21 +1,13 @@
 <script lang="ts">
     // Assets
 
-    import errorMasks from "$lib/images/interface/errorMasks.png";
+    import errorMasks from "$lib/images/interface/error/masks.png";
+
+    import { T } from "$lib/Localization";
 
     // Components
 
-    import Button from "$lib/components/Button.svelte";
-
-    // Localization
-
-    import {
-        localization,
-        type Localization,
-        type LocalizationEntry,
-    } from "$lib/Localization";
-
-    const T: LocalizationEntry = localization.error;
+    import Button from "./components/Button.svelte";
 
     // Content
 
@@ -35,22 +27,18 @@
 
 <div class="container">
     <div class="masks" bind:this={masks}>
-        <img
-            style:--width={masksWidth}
-            src={errorMasks}
-            alt="Old greek tragedy masks."
-        />
+        <img style:--width={masksWidth} src={errorMasks} alt={T.altError} />
     </div>
 
     <div class="title">
-        {#each T.title.split(" ") as word}
+        {#each T.errorTitle.split(" ") as word}
             <span>{word}</span>
         {/each}
     </div>
 
     <div class="button">
         <Button onclick={() => (location.pathname = "/")}>
-            {T.button} <span>➙</span>
+            {T.back} <span>➙</span>
         </Button>
     </div>
 </div>
