@@ -68,8 +68,13 @@
         $storage.trust = Math.max(0, Math.min(8, $storage.trust));
 
         if (currentMessage + 1 >= 4) {
-            if ($storage.trust > 4) location.href = "/endings/first";
-            else location.href = "/endings/fourth";
+            if ($storage.trust > 4) {
+                if (!$storage.parts.frontRopes.discovered)
+                    location.href = "/endings/second";
+                else if (!$storage.parts.headRopes.discovered)
+                    location.href = "/endings/third";
+                else location.href = "/endings/first";
+            } else location.href = "/endings/fourth";
         } else {
             currentMessage++;
         }
