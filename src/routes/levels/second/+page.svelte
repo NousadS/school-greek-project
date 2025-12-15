@@ -194,6 +194,12 @@
     }
 </script>
 
+<svelte:head>
+    {#each [puzzlePrinted, puzzleBase, puzzleBack, puzzleFront, puzzleFrontRopes, puzzleHead, puzzleHeadRopes, puzzleLeftBackWheelWood, puzzleLeftBackWheel, puzzleLeftFrontWheelWood, puzzleLeftFrontWheel, puzzleRightBackWheelWood, puzzleRightBackWheel, puzzleRightFrontWheelWood, puzzleRightFrontWheel] as l}
+        <link rel="preload" href={l} as="image" />
+    {/each}
+</svelte:head>
+
 <Introduction level={1} introduction={T.introductionSecond} />
 
 <div class="container">

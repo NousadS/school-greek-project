@@ -235,6 +235,12 @@
     }
 </script>
 
+<svelte:head>
+    {#each [locationImage1, rock1Image1, rock2Image1, rock3Image1, rock4Image1, wood1Image1, wood2Image1, wood3Image1, wood4Image1, wood5Image1, wood6Image1, wood7Image1, locationImage2, rope1Image2, rope2Image2, rope3Image2, rock1Image2, rock2Image2, rock3Image2] as l}
+        <link rel="preload" href={l} as="image" />
+    {/each}
+</svelte:head>
+
 <Introduction level={0} introduction={T.introductionFirst} />
 
 <div class="container">

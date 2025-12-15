@@ -97,6 +97,12 @@
     }
 </script>
 
+<svelte:head>
+    {#each [idleFace, angryFace, happyFace] as l}
+        <link rel="preload" href={l} as="image" />
+    {/each}
+</svelte:head>
+
 <Introduction level={2} introduction={T.introductionThird} />
 
 <div class="container">
