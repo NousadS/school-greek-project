@@ -18,6 +18,8 @@
         type StoragePartName,
         type StorageResourceType,
     } from "$lib/Storage";
+
+    $storage.endings[3] = true;
 </script>
 
 <Ending

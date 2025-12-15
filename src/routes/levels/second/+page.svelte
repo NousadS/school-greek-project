@@ -179,6 +179,13 @@
             $storage.resources[part.requires].got -= part.cost;
         }
 
+        if (
+            Object.entries($storage.parts)
+                .map((pe) => pe[1].discovered)
+                .reduce((pr, cr) => pr && cr)
+        )
+            onNextClick();
+
         event.dataTransfer?.clearData("text");
     }
 
@@ -187,7 +194,7 @@
     }
 </script>
 
-<Introduction level={1}>{T.introductionSecond}</Introduction>
+<Introduction level={1} introduction={T.introductionSecond} />
 
 <div class="container">
     <div class="puzzle">

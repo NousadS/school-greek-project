@@ -97,7 +97,7 @@
     }
 </script>
 
-<Introduction level={2}>{T.introductionThird}</Introduction>
+<Introduction level={2} introduction={T.introductionThird} />
 
 <div class="container">
     <img

@@ -4,7 +4,6 @@
     import menuImage from "$lib/images/interface/menu/background.jpg";
 
     import { T } from "$lib/Localization";
-    import { defaultStorageState, storage } from "$lib/Storage";
 
     // Components
 
@@ -12,7 +11,17 @@
 
     // Content
 
+    import {
+        storage,
+        defaultStorageState,
+        type StoragePartName,
+        type StorageResourceType,
+    } from "$lib/Storage";
+    import { fly } from "svelte/transition";
+    import { onMount } from "svelte";
+
     let clicked: boolean = $state(false);
+    let shown: boolean = $state(false);
 
     function onclick() {
         clicked = true;
@@ -21,6 +30,26 @@
 
         setTimeout(() => (location.pathname = "/levels/first"), 750);
     }
+
+    onMount(() =>
+        setTimeout(() => {
+            if (
+                $storage.endingsLastTimeShown ===
+                $storage.endings.filter((v) => v).length
+            )
+                return;
+
+            shown = true;
+
+            setTimeout(() => {
+                $storage.endingsLastTimeShown = $storage.endings.filter(
+                    (v) => v
+                ).length;
+
+                setTimeout(() => (shown = false), 1000);
+            }, 1000);
+        }, 1000)
+    );
 </script>
 
 <div
@@ -47,6 +76,38 @@
     <div class="description">{T.menuDescription}</div>
     <div class="authors">{T.menuAuthors}</div>
 
+    {#if $storage.endings.reduce((p, c) => p || c)}
+        <div class="endings" class:shown>
+            <div>{T.menuEndings}</div>
+
+            <div class="amount">
+                <div class="counter-wrapper">
+                    {#key $storage.endingsLastTimeShown}
+                        <div
+                            in:fly={{
+                                duration: 1000,
+                                delay: 0,
+                                y: "2em",
+                                opacity: 0.1,
+                            }}
+                            out:fly={{
+                                duration: 1000,
+                                delay: 0,
+                                y: "-2em",
+                                opacity: 0.1,
+                            }}
+                            class="counter"
+                        >
+                            {$storage.endingsLastTimeShown}
+                        </div>
+                    {/key}
+                </div>
+                <div>/</div>
+                <div>{$storage.endings.length}</div>
+            </div>
+        </div>
+    {/if}
+
     <div class="button" class:clicked>
         <Button {onclick}>{T.start} <span>➙</span></Button>
     </div>
@@ -67,7 +128,7 @@
 
         display: grid;
         grid-template-columns: 25fr repeat(4, calc(50fr / 4)) 25fr;
-        grid-template-rows: 25fr repeat(4, calc(50fr / 4)) 25fr;
+        grid-template-rows: 25fr repeat(5, calc(50fr / 5)) 25fr;
         justify-content: center;
         align-content: center;
         justify-items: center;
@@ -109,9 +170,49 @@
             text-align: right;
         }
 
+        .endings {
+            grid-column: 2;
+            grid-row: 4;
+
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: row;
+
+            transition: 1s transform ease;
+
+            &.shown {
+                transform: scale(3) translateX(50%) translateY(35%);
+            }
+
+            .amount {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-direction: row;
+
+                width: 3rem;
+
+                div {
+                    width: 1rem;
+                }
+            }
+
+            .counter-wrapper {
+                position: relative;
+
+                .counter {
+                    position: absolute;
+                }
+            }
+        }
+
         .button {
             grid-column: 2 / span 4;
-            grid-row: 4;
+            grid-row: 5;
             justify-self: start;
 
             width: 12dvw;

@@ -23,8 +23,8 @@
 
 <div
     class="container"
-    in:fly={{ duration: 500, delay: 500, y: "50%", opacity: 0.5 }}
-    out:fly={{ duration: 500, delay: 0, y: "-50%", opacity: 0.5 }}
+    in:fly={{ duration: 500, delay: 0, y: "50%", opacity: 0.1}}
+    out:fly={{ duration: 500, delay: 0, y: "-50%", opacity: 0.1 }}
 >
     <img src={location.image} alt={T.altLocation} />
 

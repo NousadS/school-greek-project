@@ -12,64 +12,71 @@
 
     import { storage } from "$lib/Storage";
 
-    import { onDestroy, onMount, type Snippet } from "svelte";
+    import { onMount, type Snippet } from "svelte";
     import { fly } from "svelte/transition";
 
-    let { level, children }: { level: number; children: Snippet } = $props();
+    let { level, introduction }: { level: number; introduction: string } =
+        $props();
 
     let dialog: HTMLDialogElement;
     let clicked: boolean = $state(false);
-    let counter: number = $state(3);
+    let counter: number = $state(4);
 
     function onclick() {
+        if (clicked) return;
+
         clicked = true;
 
+        setTimeout(() => counter--, 100);
         setTimeout(() => counter--, 1000);
         setTimeout(() => counter--, 2000);
         setTimeout(() => {
-            dialog.close();
-
             $storage.timeFrozen = false;
+            dialog.close();
         }, 3000);
     }
 
     onMount(() => {
         $storage.timeFrozen = true;
-        dialog.showModal();
+        // dialog.showModal();
     });
 </script>
 
 <dialog bind:this={dialog}>
-    <h1>{T.introductionTitle} {level + 1}</h1>
+    {#if clicked}
+        <div class="counter-container">
+            {#key counter}
+                <div
+                    in:fly={{
+                        duration: 1000,
+                        delay: 0,
+                        y: "2em",
+                        opacity: 0.1,
+                    }}
+                    out:fly={{
+                        duration: 1000,
+                        delay: 0,
+                        y: "-2em",
+                        opacity: 0.1,
+                    }}
+                >
+                    {counter}
+                </div>
+            {/key}
+        </div>
+    {:else}
+        <h1>{T.introductionTitle} {level + 1}</h1>
 
-    <div class="text" class:clicked>
-        {#if clicked}
-            <div class="counter-container">
-                {#key counter}
-                    <span
-                        in:fly={{
-                            duration: 100,
-                            delay: 100,
-                            y: "1em",
-                            opacity: 0.5,
-                        }}
-                        out:fly={{
-                            duration: 100,
-                            delay: 0,
-                            y: "-1em",
-                            opacity: 0.5,
-                        }}>{counter}</span
-                    >
-                {/key}
-            </div>
-        {:else}
-            {@render children()}
-        {/if}
-    </div>
+        <div class="text">
+            {#each introduction.split("<br>") as line}
+                <div>{line}</div>
+            {/each}
+        </div>
 
-    <div class="button">
-        <Button {onclick}>{T.start}</Button>
-    </div>
+        <div class="button">
+            <Button {onclick}>{T.start}</Button>
+        </div>
+    {/if}
 
     <Ornament />
 </dialog>
@@ -110,25 +117,15 @@
         .text {
             font-size: 1.4rem;
             line-height: 1.6;
-            text-align: center;
 
-            &.clicked {
-                font-weight: bold;
-                font-size: 3rem;
-            }
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: column;
 
-            .counter-container {
-                width: 2em;
-                height: 1em;
-                line-height: 1em;
-
-                text-align: center;
-
-                position: relative;
-
-                span {
-                    position: absolute;
-                }
+            &:nth-child(odd) {
+            align-items: flex-end;
+                text-align: left;
             }
         }
 
@@ -139,6 +136,25 @@
 
             width: 40%;
             height: 7%;
+        }
+
+        .counter-container {
+            width: 100%;
+            height: 100%;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            div {
+                position: absolute;
+
+                text-align: center;
+                font-size: 15rem;
+            }
         }
 
         &::backdrop {

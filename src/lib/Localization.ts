@@ -19,6 +19,7 @@ const T: Localization = {
     menuTitle: "Das trojanische Pferd",
     menuDescription: "Ein Spiel",
     menuAuthors: "Von Mats, Grigor und Matvei",
+    menuEndings: "Endungen:",
 
     // Bypass
 
@@ -48,12 +49,12 @@ const T: Localization = {
     introductionTitle: "Level",
 
     introductionFirst: `
-        Auf dieser Level ist es deine Aufgabe, die notwendigen Ressourcen zu sammeln, 
-        um das Trojanische Pferd zu errichten. Du kannst die Materialien aus zwei Orten herbekommen: 
-        der geschäftige Marktplatz und der windumtoste Hafen. 
-        Suche an beiden dieser Orte nach allen erforderlichen Materialien. 
+        Auf dieser Level ist es deine Aufgabe, die notwendigen Ressourcen zu sammeln,
+        um das Trojanische Pferd zu errichten. <br> Du kannst die Materialien aus zwei Orten herbekommen: 
+        der geschäftige Marktplatz und der windumtoste Hafen. <br>
+        Suche an beiden dieser Orte nach allen erforderlichen Materialien. <br>
         Hast du dort alles zusammengetragen, so betätige die seitlich angebrachte Schaltfläche, 
-        um deinen Weg fortzusetzen und dem Plan der Achaier näherzukommen.
+        um deinen Weg fortzusetzen und dem Plan der Achaier näherzukommen. <br>
     `,
     introductionSecond: `
         Du schreitest zum nächsten Level vor. Hier liegt es an dir, 

@@ -67,6 +67,7 @@ interface Storage {
 
     //
 
+    endingsLastTimeShown: number;
     endings: boolean[];
 }
 
@@ -80,20 +81,20 @@ const defaultStorageState: Storage = {
         wood: {
             got: 0,
             max: 99,
-            discovered: [false, false],
-            increment: [54, 45],
+            discovered: [false, false, false, false, false, false, false],
+            increment: [11, 9, 15, 9, 13, 13, 29],
         },
         rope: {
             got: 0,
             max: 49,
-            discovered: [false, false],
-            increment: [20, 29],
+            discovered: [false, false, false],
+            increment: [9, 20, 20],
         },
         rock: {
             got: 0,
             max: 99,
-            discovered: [false, false, false, false],
-            increment: [21, 26, 26, 26],
+            discovered: [false, false, false, false, false, false, false],
+            increment: [9, 9, 9, 19, 19, 19, 15],
         },
     },
 
@@ -176,9 +177,8 @@ const defaultStorageState: Storage = {
 
     //
 
+    endingsLastTimeShown: 0,
     endings: [false, false, false, false],
-
-    //
 };
 
 const STORAGE_KEY: string = "state";

@@ -45,8 +45,8 @@
             0.25s transform ease,
             0.25s filter ease;
 
-        filter: drop-shadow(1px 1px 2px #ffffff55)
-            drop-shadow(-1px -1px 2px #ffffff55);
+        filter: drop-shadow(1px 1px 2px #ffffff77)
+            drop-shadow(-1px -1px 2px #ffffff77);
 
         &:hover {
             transform: scale(1.25);
